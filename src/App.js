@@ -1,24 +1,27 @@
 import React from 'react';
-import logo from './logo.svg';
 import './global.scss';
+import logo from "./images/myday-logo.png";
+import ToDo from "./Containers/todo.js";
+import Weather from "./Containers/weather.js";
+
+
 
 function App() {
+
+  const date = new Date();
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img src={logo} alt="My Day logo" />
+        <div className="date">
+          {date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}
+        </div>
+        <Weather />
       </header>
+      <section>
+        <ToDo />
+      </section>
     </div>
   );
 }
