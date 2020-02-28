@@ -1,3 +1,14 @@
+# Morning Dashboard
+
+This is my own personal dashboard. I work on this in my spare time, which comes and goes, so updates will happen when I can make them. 
+
+This will contain a to-do list, calendar and social circle of friends to maintain. Obviosuly, that is not data the user should expose, so I will commit the blank config file and then have git ignore that.
+
+Eventually, I'd like to set up an initial customization dialog, so users can enter location, toggle date/temp formats, etc. 
+
+## Standard ReadMe data from create-react-app
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

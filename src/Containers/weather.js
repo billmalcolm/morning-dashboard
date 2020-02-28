@@ -11,7 +11,6 @@ class Weather extends React.Component {
         }
     }
 
-    // openweather : "http://api.openweathermap.org/data/2.5/weather?lat=42.9723&lon=-88.0037&appid=5d15af8ebf8d890b4d0bca7b1433040d"
     // current weather: http://api.openweathermap.org/data/2.5/weather?lat=42.9723&lon=-88.0037&appid=5d15af8ebf8d890b4d0bca7b1433040d
     // forecast: http://api.openweathermap.org/data/2.5/forecast/?lat=42.9723&lon=-88.0037&APPID=5d15af8ebf8d890b4d0bca7b1433040d
 
@@ -31,13 +30,9 @@ class Weather extends React.Component {
     }
 
 
-
-
-
     render() {
 
-
-        let nowK = this.state.currentTemp;
+        // api returns units in Kelvin, so need to convert to Fahrenheit
         function convertKtoF(k) {
             let p1 = k - 273.15;
             let p2 = p1 * 9 / 5;
@@ -51,7 +46,7 @@ class Weather extends React.Component {
 
         return (
             <div>
-                Currently:{currentF}&deg;F, {this.state.currentSky}
+                Currently: {currentF}&deg;F, {this.state.currentSky}
             </div>
         );
     }
