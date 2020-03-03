@@ -14,8 +14,13 @@ class ToDo extends React.Component {
         this.deleteTask = this.deleteTask.bind(this);
     }
 
+    componentDidMount() {
+        var tasks = JSON.parse(localStorage.getItem("tasks"));
+        this.setState({ tasks: tasks })
+    }
+
     componentDidUpdate() {
-        // We want the tasks to persist, so I'll use localstorage for now
+        // We want the tasks to persist, so we're saving them all in localstorage when the state gets updated
         localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
     }
 
