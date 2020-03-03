@@ -31,11 +31,11 @@ class Weather extends React.Component {
     componentDidMount() {
         this.getWeather()
 
+        // I want this to refresh every hour
         setInterval(function () {
             this.getWeather();
-        }, 3600000)
+        }, 3600000);
     }
-
 
     render() {
 

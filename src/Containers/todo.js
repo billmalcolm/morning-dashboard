@@ -14,7 +14,10 @@ class ToDo extends React.Component {
         this.deleteTask = this.deleteTask.bind(this);
     }
 
-
+    componentDidUpdate() {
+        // We want the tasks to persist, so I'll use localstorage for now
+        localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+    }
 
     addTask(e) {
         if (this._inputElement.value !== "") {
@@ -32,11 +35,8 @@ class ToDo extends React.Component {
                 };
             });
 
-
-
             // now that the task is added, we want to clear out the value of the input so a new one can be added
             this._inputElement.value = "";
-
 
         }
 
@@ -45,6 +45,7 @@ class ToDo extends React.Component {
     }
 
     deleteTask(key) {
+        // Filtering out the task to be deleted
         var filteredItems = this.state.tasks.filter(function (item) {
             return (item.key !== key);
         });
@@ -69,10 +70,7 @@ class ToDo extends React.Component {
                 <TodoList tasks={this.state.tasks} deleteTask={this.deleteTask} />
             </div>
         );
-
-
     }
-
 }
 
 export default ToDo;
