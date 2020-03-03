@@ -7,15 +7,15 @@ class Weather extends React.Component {
         this.state = {
             currentTemp: '',
             currentSky: '',
-
         }
+
+        this.getWeather = this.getWeather.bind(this);
     }
 
     // current weather: http://api.openweathermap.org/data/2.5/weather?lat=42.9723&lon=-88.0037&appid=5d15af8ebf8d890b4d0bca7b1433040d
     // forecast: http://api.openweathermap.org/data/2.5/forecast/?lat=42.9723&lon=-88.0037&APPID=5d15af8ebf8d890b4d0bca7b1433040d
 
-
-    componentWillMount() {
+    getWeather() {
         fetch('http://api.openweathermap.org/data/2.5/weather?lat=42.9723&lon=-88.0037&appid=5d15af8ebf8d890b4d0bca7b1433040d')
             .then(results => {
                 return results.json();
@@ -25,7 +25,15 @@ class Weather extends React.Component {
                     currentTemp: currently.main.temp,
                     currentSky: currently.weather[0].description
                 });
-            })
+            });
+    }
+
+    componentDidMount() {
+        this.getWeather()
+
+        setInterval(function () {
+            this.getWeather();
+        }, 3600000)
     }
 
 
@@ -39,7 +47,6 @@ class Weather extends React.Component {
 
             return Math.round(f)
         }
-
 
         let currentF = convertKtoF(this.state.currentTemp)
 

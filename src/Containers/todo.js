@@ -14,6 +14,8 @@ class ToDo extends React.Component {
         this.deleteTask = this.deleteTask.bind(this);
     }
 
+
+
     addTask(e) {
         if (this._inputElement.value !== "") {
 
@@ -30,8 +32,12 @@ class ToDo extends React.Component {
                 };
             });
 
+
+
             // now that the task is added, we want to clear out the value of the input so a new one can be added
             this._inputElement.value = "";
+
+
         }
 
         // To prevent the form from being submitted and the page getting cleared
