@@ -25,7 +25,6 @@ class Weather extends React.Component {
                     currentTemp: currently.main.temp,
                     currentSky: currently.weather[0].description
                 });
-
             })
     }
 
