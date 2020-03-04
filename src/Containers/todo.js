@@ -15,16 +15,19 @@ class ToDo extends React.Component {
     }
 
     componentDidMount() {
+        // Since we can only store strings in local storage, need to parse the JSON string back into an object and save it in state
         var tasks = JSON.parse(localStorage.getItem("tasks"));
         this.setState({ tasks: tasks })
     }
 
     componentDidUpdate() {
         // We want the tasks to persist, so we're saving them all in localstorage when the state gets updated
+        // Local storage can only store strings, so we need to turn the state.tasks object into a string
         localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
     }
 
     addTask(e) {
+        // Make sure user entered a value into input
         if (this._inputElement.value !== "") {
 
             var newTask = {

@@ -6,16 +6,17 @@ class Weather extends React.Component {
 
         this.state = {
             currentTemp: '',
-            currentSky: '',
+            currentSky: ''
         }
 
-        this.getWeather = this.getWeather.bind(this);
+        this.getCurrWeather = this.getCurrWeather.bind(this);
     }
 
+    // Had to create account to get an appID.
     // current weather: http://api.openweathermap.org/data/2.5/weather?lat=42.9723&lon=-88.0037&appid=5d15af8ebf8d890b4d0bca7b1433040d
     // forecast: http://api.openweathermap.org/data/2.5/forecast/?lat=42.9723&lon=-88.0037&APPID=5d15af8ebf8d890b4d0bca7b1433040d
 
-    getWeather() {
+    getCurrWeather() {
         fetch('http://api.openweathermap.org/data/2.5/weather?lat=42.9723&lon=-88.0037&appid=5d15af8ebf8d890b4d0bca7b1433040d')
             .then(results => {
                 return results.json();
@@ -29,11 +30,11 @@ class Weather extends React.Component {
     }
 
     componentDidMount() {
-        this.getWeather()
+        this.getCurrWeather()
 
         // I want this to refresh every hour
         setInterval(function () {
-            this.getWeather();
+            this.getCurrWeather();
         }, 3600000);
     }
 
@@ -48,12 +49,12 @@ class Weather extends React.Component {
             return Math.round(f)
         }
 
-        let currentF = convertKtoF(this.state.currentTemp)
+        let currentF = convertKtoF(this.state.currentTemp);
 
         return (
-            <div>
-                Currently: {currentF}&deg;F, {this.state.currentSky}
-            </div>
+            <p>
+                {currentF}&deg;F, {this.state.currentSky}
+            </p>
         );
     }
 }

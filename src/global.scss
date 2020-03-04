@@ -2,15 +2,34 @@
     -webkit-box-sizing: border-box;
     box-sizing:border-box;
     font-family:arial;
+    margin:0;
+    padding:0;
 }
 
 body {
     margin: 0;
 }
 
-header {
+.inner {
     display:flex;
     justify-content:space-between;
-    padding:15px 50px;
+    align-items: center;
+    max-width:1400px;
+    width:100%;
+    margin:auto;
+}
+
+header {
     border-bottom:1px solid #ccc;
+
+    img {
+        margin:15px 50px;
+    }
+
+    &> div {
+        p {
+            font-size:24px;
+            font-weight:bold;
+        }        
+    }
 }

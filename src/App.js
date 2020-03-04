@@ -13,14 +13,18 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} alt="My Day logo" />
-        <div className="date">
-          {date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}
+        <div className="inner">
+          <img src={logo} alt="My Day logo" />
+          <div>
+            <p>{date.getMonth() + 1}/{date.getDate()}/{date.getFullYear()}</p>
+            <Weather />
+          </div>
         </div>
-        <Weather />
       </header>
       <section>
-        <ToDo />
+        <div className="inner">
+          <ToDo />
+        </div>
       </section>
     </div>
   );
