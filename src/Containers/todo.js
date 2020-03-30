@@ -21,6 +21,7 @@ class ToDo extends React.Component {
     }
 
     componentDidUpdate() {
+
         // We want the tasks to persist, so we're saving them all in localstorage when the state gets updated
         // Local storage can only store strings, so we need to turn the state.tasks object into a string
         localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
@@ -36,7 +37,7 @@ class ToDo extends React.Component {
                 key: Date.now()
             };
 
-            // we don't want to obliterate any existing tasks, so we pass in the previous state and replace everything with the former task array and appending the new task
+            // we don't want to obliterate any existing tasks, so we pass in the previous state and replace everything with the former task array and append the new task
             this.setState((prevState) => {
                 return {
                     tasks: prevState.tasks.concat(newTask)

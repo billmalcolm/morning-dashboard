@@ -17,7 +17,7 @@ class TodoList extends React.Component {
 
     render() {
 
-        var todoTasks = this.props.tasks;
+        var todoTasks = this.props.tasks === null ? [] : this.props.tasks;
         var listItems = todoTasks.map(this.createTasks);
 
         return (
