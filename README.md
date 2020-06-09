@@ -1,8 +1,10 @@
 # Morning Dashboard
 
-This is my own personal dashboard. I work on this in my spare time, which comes and goes, so updates will happen when I can make them. 
+As far as I know, the perfect day planner doesn't exist, yet. I decided to build my own, tailored exactly for my own needs. 
 
-This will contain a to-do list, calendar and social circle of friends to maintain. Obviosuly, that is not data the user should expose, so I will commit the blank config file and then have git ignore that.
+This will be my own personal dashboard. I work on this in my spare time, which comes and goes, so updates will happen when I can make them. 
+
+This will contain a to-do list, calendar and social circle of friends to maintain. Obviously, that is not data the user should expose, so I will commit the blank config file and then have git ignore that.
 
 Eventually, I'd like to set up an initial customization dialog, so users can enter location, toggle date/temp formats, etc. 
 
