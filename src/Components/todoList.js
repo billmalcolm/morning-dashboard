@@ -5,10 +5,15 @@ class TodoList extends React.Component {
         super(props);
 
         this.createTasks = this.createTasks.bind(this);
+
     }
 
     createTasks(item) {
-        return <li key={item.key}>{item.text}  <span className="remove" onClick={() => this.deleteTask(item.key)}>Remove</span></li>
+        return <li key={item.key}>
+            <span className="task-item">{item.text}</span>
+            <span className="edit-details" onClick={() => { }}>Details</span>
+            <span className="remove" onClick={() => this.deleteTask(item.key)}>Remove</span>
+        </li >
     }
 
     deleteTask(key) {

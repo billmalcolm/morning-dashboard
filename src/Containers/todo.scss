@@ -1,6 +1,60 @@
 .todo-container {
-    margin:20px;
+    margin:20px 0;
     padding:20px;
     border:1px solid #ccc;
-    width:500px;
+    width:600px;
+  
+    form {
+        display:flex;
+        justify-content: space-between;
+        margin-bottom:20px;
+
+        input {
+            padding-left:10px;
+            width:69%;
+            min-width:320px;
+        }
+
+        button {
+            padding: 5px 15px;
+        }
+    }
+   
+
+    .task-list {
+        list-style: none;
+
+        li {
+            display:flex;            
+            align-items: center;
+            background-color:#ccc;
+            margin-bottom:5px;
+
+            .task-item {
+                display:inline-block;
+                padding:5px 15px;
+                flex-grow:2;
+            }
+
+            .edit-details {
+                display:inline-block;
+                background-color:blue;
+                color:#fff;
+                padding:5px 15px;
+                font-size:16px;
+                cursor:pointer;
+                border:1px solid black;
+            }
+
+            .remove {
+                display:inline-block;
+                background-color:red;
+                border:1px solid black;
+                color:#fff;
+                padding:5px 15px;
+                font-size:16px;
+                cursor:pointer;
+            }
+        }
+    }
 }

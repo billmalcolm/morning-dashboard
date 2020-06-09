@@ -24,7 +24,8 @@ class Weather extends React.Component {
                 let currently = data;
                 this.setState({
                     currentTemp: currently.main.temp,
-                    currentSky: currently.weather[0].description
+                    currentSky: currently.weather[0].description,
+                    icon: currently.weather[0].icon
                 });
             });
     }
@@ -51,10 +52,14 @@ class Weather extends React.Component {
 
         let currentF = convertKtoF(this.state.currentTemp);
 
+
+
+
+
         return (
-            <p>
-                {currentF}&deg;F, {this.state.currentSky}
-            </p>
+            <div className="weather">
+                <span>{currentF}&deg;F,</span> <img className="skyCon" src={"http://openweathermap.org/img/wn/" + this.state.icon + ".png"} />
+            </div>
         );
     }
 }
