@@ -11,14 +11,16 @@ class TodoList extends React.Component {
     createTasks(item) {
         return <li key={item.key}>
             <span className="task-item">{item.text}</span>
-            <span className="edit-details" onClick={() => { }}>Details</span>
-            <span className="remove" onClick={() => this.deleteTask(item.key)}>Remove</span>
+            <span className="remove" onClick={() => this.deleteTask(item.key)}><i className="fa fa-trash"></i></span>
+            <div className="tags"></div>
         </li >
     }
 
     deleteTask(key) {
         this.props.deleteTask(key);
     }
+
+
 
     render() {
 
@@ -27,7 +29,9 @@ class TodoList extends React.Component {
 
         return (
             <ul className="task-list">
+
                 {listItems}
+
             </ul>
         )
     }

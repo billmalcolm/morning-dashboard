@@ -21,7 +21,6 @@ class ToDo extends React.Component {
     }
 
     componentDidUpdate() {
-
         // We want the tasks to persist, so we're saving them all in localstorage when the state gets updated
         // Local storage can only store strings, so we need to turn the state.tasks object into a string
         localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
@@ -29,12 +28,14 @@ class ToDo extends React.Component {
 
     addTask(e) {
         // Make sure user entered a value into input
-        if (this._inputElement.value !== "") {
+        if (this.enteredTask.value !== "") {
 
             var newTask = {
-                text: this._inputElement.value,
+                text: this.enteredTask.value,
                 // In order for React to easily keep track of the array, we need to establish a unique key for each item
-                key: Date.now()
+                key: Date.now(),
+                tags: this.enteredTags.value,
+                done: false
             };
 
             // we don't want to obliterate any existing tasks, so we pass in the previous state and replace everything with the former task array and append the new task
@@ -53,6 +54,8 @@ class ToDo extends React.Component {
         e.preventDefault();
     }
 
+
+
     deleteTask(key) {
         // Filtering out the task to be deleted
         var filteredItems = this.state.tasks.filter(function (item) {
@@ -64,6 +67,8 @@ class ToDo extends React.Component {
         });
     }
 
+
+
     // React doesn't like when you try to access the dom and mess with it, so need to use refs. 
     // Using the ref, we are creating a prop and storing the input's value in this component's props.
 
@@ -72,8 +77,12 @@ class ToDo extends React.Component {
             <div className="todo-container">
                 <div className="header">
                     <form onSubmit={this.addTask}>
-                        <input placeholder="Enter task" type="text" ref={(a) => this._inputElement = a} />
-                        <button type="submit">Add Task</button>
+
+                        <input placeholder="Enter S.M.A.R.T. task" type="text" ref={(a) => this.enteredTask = a} />
+
+                        <em>(Specific, Measurable, Attainable, Realistic, Timely)</em>
+                        <input className="tags" placeholder="Add Tag or Tags with &quot;,&quot;" type="text" ref={(b) => this.enteredTags = b} />
+                        <button type="submit">+</button>
                     </form>
                 </div>
                 <TodoList tasks={this.state.tasks} deleteTask={this.deleteTask} />

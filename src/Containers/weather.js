@@ -58,7 +58,7 @@ class Weather extends React.Component {
 
         return (
             <div className="weather">
-                <span>{currentF}&deg;F,</span> <img className="skyCon" src={"http://openweathermap.org/img/wn/" + this.state.icon + ".png"} />
+                <span>{currentF}&deg;F,</span> <img className="skyCon" src={"http://openweathermap.org/img/wn/" + this.state.icon + ".png"} alt={this.state.currentSky} />
             </div>
         );
     }

@@ -1,22 +1,44 @@
 .todo-container {
     margin:20px 0;
-    padding:20px;
-    border:1px solid #ccc;
+    padding:20px 0;
     width:600px;
   
     form {
         display:flex;
         justify-content: space-between;
+        flex-wrap:wrap;
         margin-bottom:20px;
 
         input {
-            padding-left:10px;
             width:69%;
             min-width:320px;
+
+            &.tags {
+                width:240px;
+
+            }
         }
 
-        button {
+        em {
+            width:100%;
+            font-size: 12px;
+            margin:5px 0 10px 15px;
+        }
+
+        button[type="submit"] {
             padding: 5px 15px;
+            width:100px;
+            height:100px;
+            border-radius:50%;
+            margin-top:-67px;
+            border:1px solid #092106;
+            background-color: #279c18;
+            color:#fff;
+            font-size:54px;    
+            
+            &:active {
+                box-shadow:10px 10px 50px #092106 inset;
+            }
         }
     }
    
@@ -27,13 +49,15 @@
         li {
             display:flex;            
             align-items: center;
-            background-color:#ccc;
             margin-bottom:5px;
 
             .task-item {
                 display:inline-block;
                 padding:5px 15px;
                 flex-grow:2;
+                background-color:transparent;
+                border:1px solid #528f1d;
+                border-radius:10px;
             }
 
             .edit-details {
@@ -43,17 +67,16 @@
                 padding:5px 15px;
                 font-size:16px;
                 cursor:pointer;
-                border:1px solid black;
+                border:1px solid #092106;
             }
 
             .remove {
                 display:inline-block;
-                background-color:red;
-                border:1px solid black;
-                color:#fff;
-                padding:5px 15px;
-                font-size:16px;
+                color:red;
+                border-radius:50%;
+                font-size:20px;
                 cursor:pointer;
+                margin-left:10px;
             }
         }
     }
